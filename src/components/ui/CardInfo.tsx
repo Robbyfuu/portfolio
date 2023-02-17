@@ -7,9 +7,14 @@ interface Props {
 }
 export const CardInfo: React.FC<Props> = ({ software }) => {
   const { img, title, subTitle, description, link } = software;
+  
+  const handleRedirect = () => {
+    window.open(link, "_blank");
+  }
+
   return (
     <Grid xs={12} md={6} lg={3}>
-      <Card css={{ p: "$6", mw: "400px" }}>
+      <Card css={{ p: "$6", mw: "400px" }} onClick={handleRedirect} isHoverable isPressable>
         <Card.Header>
           <img alt={`${title}logo`} src={img} width="34px" height="34px" />
           <Grid.Container css={{ pl: "$6" }}>

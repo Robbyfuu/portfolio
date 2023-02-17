@@ -1,4 +1,4 @@
-import { Navbar, Button, Text, Spacer } from "@nextui-org/react";
+import { Navbar, Button, Text, Spacer, Link } from "@nextui-org/react";
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Layout } from "../layouts";
@@ -15,6 +15,7 @@ export const NavbarComponent: React.FC<NavbarProps> = ({
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const collapseItems = ["I'm", "Proyectos"];
 
   const handleNavigate = () => {
     navigate("/");
@@ -25,17 +26,18 @@ export const NavbarComponent: React.FC<NavbarProps> = ({
   return (
     <Layout>
       <Navbar isBordered variant={"floating"}>
+        <Navbar.Toggle showIn={"xs"} />
         <Navbar.Brand>
           <Text h2>R</Text>
-          <Text h3 color="inherit" hideIn="xs">
+          <Text h3 color="inherit">
             oberto
           </Text>
           <Spacer x={0.3} />
-          <Text h2 color="inherit" hideIn="xs">
+          <Text h2 color="inherit">
             {" "}
             A
           </Text>
-          <Text h3 color="inherit" hideIn="xs">
+          <Text h3 color="inherit">
             rce
           </Text>
         </Navbar.Brand>
@@ -59,7 +61,10 @@ export const NavbarComponent: React.FC<NavbarProps> = ({
         </Navbar.Content>
         <Navbar.Content>
           <Navbar.Item>
-            <Text h4> Seleccion del Tema</Text>
+            <Text hideIn={"xs"} h4>
+              {" "}
+              Seleccion del Tema
+            </Text>
           </Navbar.Item>
           <Navbar.Item>
             <Button
@@ -95,6 +100,44 @@ export const NavbarComponent: React.FC<NavbarProps> = ({
             </Button>
           </Navbar.Item>
         </Navbar.Content>
+        <Navbar.Collapse>
+          {collapseItems.map((item, index) => (
+            <Navbar.CollapseItem
+              key={item}
+              activeColor="secondary"
+              css={{
+                color: index === collapseItems.length - 1 ? "$error" : "",
+              }}
+              isActive={
+                index === 0
+                  ? location.pathname === "/"
+                    ? true
+                    : false
+                  : index === 1
+                  ? location.pathname === "/project"
+                    ? true
+                    : false
+                  : false
+              }
+            >
+              <Link
+                color="inherit"
+                css={{
+                  minWidth: "100%",
+                }}
+                onClick={() => {
+                  if (index === 0) {
+                    handleNavigate();
+                  } else if (index === 1) {
+                    handleNavigateProject();
+                  }
+                }}
+              >
+                {item}
+              </Link>
+            </Navbar.CollapseItem>
+          ))}
+        </Navbar.Collapse>
       </Navbar>
     </Layout>
   );

@@ -16,8 +16,6 @@ export const NavbarComponent: React.FC<NavbarProps> = ({
   const navigate = useNavigate();
   const location = useLocation();
 
-
-
   const handleNavigate = () => {
     navigate("/");
   };
@@ -42,8 +40,22 @@ export const NavbarComponent: React.FC<NavbarProps> = ({
           </Text>
         </Navbar.Brand>
         <Navbar.Content hideIn="xs" variant="highlight-rounded">
-          <Navbar.Item isActive={location.pathname=== '/'? true:false} activeColor={'secondary'} onClick={handleNavigate}>I'm</Navbar.Item>
-          <Navbar.Item isActive={location.pathname=== '/project'? true:false}  activeColor={'secondary'} onClick={handleNavigateProject}> Proyectos</Navbar.Item>
+          <Navbar.Item
+            isActive={location.pathname === "/" ? true : false}
+            activeColor={"secondary"}
+            onClick={handleNavigate}
+            css={{ cursor: "pointer" }}
+          >
+            I'm
+          </Navbar.Item>
+          <Navbar.Item
+            isActive={location.pathname === "/project" ? true : false}
+            activeColor={"secondary"}
+            onClick={handleNavigateProject}
+            css={{ cursor: "pointer" }}
+          >
+            Proyectos
+          </Navbar.Item>
         </Navbar.Content>
         <Navbar.Content>
           <Navbar.Item>

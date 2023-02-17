@@ -14,7 +14,7 @@ export const ExpLaboral:React.FC = () => {
                 <ul>
                   <li style={{ justifyContent: "flex-start", display: "flex" }}>
                     <Col>
-                      <Text> Agosto 2022 - Febrero2023 </Text>
+                      <Text> Agosto 2022 - Febrero 2023 </Text>
                     </Col>
                     <Col>
                       <Box>

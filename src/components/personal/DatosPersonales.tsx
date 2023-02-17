@@ -1,7 +1,11 @@
 import React from "react";
-import { Card, Grid, Text,Image } from "@nextui-org/react";
+import { Card, Grid, Text, Image, Link, Spacer } from "@nextui-org/react";
 import { IPersonal } from "../../interfaces";
 
+
+import linkein from "../../assets/linkedin.svg";
+import twitter from "../../assets/twitter.svg";
+import { Box } from "../ui";
 interface Props {
   img: string;
   personal: IPersonal;
@@ -10,20 +14,22 @@ export const DatosPersonales: React.FC<Props> = ({ img, personal }) => {
   const { name, phone, nationality, bornDate, email, residence } = personal;
   return (
     <>
-    
-      <Grid xs={12} sm={3} xl={3} css={{ paddingTop: "2%", maxHeight: "350px" }} >
-        
-          <Image
-            src={img}
-            alt={"Me"}
-            width="100%"
-            css={{
-              objectFit: "contain",
-              minHeight: "390px",
-              maxHeight: "500px",
-            }}
-          />
-        
+      <Grid
+        xs={12}
+        sm={3}
+        xl={3}
+        css={{ paddingTop: "2%", maxHeight: "350px" }}
+      >
+        <Card.Image
+          src={img}
+          alt={"Me"}
+          width="100%"
+          css={{
+            objectFit: "contain",
+            minHeight: "390px",
+            maxHeight: "500px",
+          }}
+        />
       </Grid>
       <Grid
         xs={12}
@@ -34,8 +40,30 @@ export const DatosPersonales: React.FC<Props> = ({ img, personal }) => {
         <Card>
           <Card.Body>
             <Grid.Container>
-              <Grid xs={12} sm={12}>
+              <Grid xs={12} sm={12} justify='space-between'>
                 <Text h3>Datos Personales</Text>
+                <Spacer y={0.5} />
+                <Box css={{display:'flex'}}>
+                
+                  <Link href="https://www.linkedin.com/in/rarcemu/" target="_blank">
+                    <Image
+                      src={linkein}
+                      alt="LinkedIn"
+                      height={30}
+                      width={30}
+                    />
+                  </Link>
+                  <Spacer />
+                  <Link href="https://twitter.com/Robbyfuu" target="_blank">
+                    {" "}
+                    <Image
+                      src={twitter}
+                      alt="Twitter"
+                      height={35}
+                      width={30}
+                    />
+                  </Link>
+                </Box>
               </Grid>
               <Grid xs={12} sm={6}>
                 <ul>
@@ -72,11 +100,6 @@ export const DatosPersonales: React.FC<Props> = ({ img, personal }) => {
           </Card.Body>
         </Card>
       </Grid>
-
-    
-    
-    
     </>
-
   );
 };

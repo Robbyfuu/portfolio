@@ -9,7 +9,7 @@ export const Presentacion:React.FC = () => {
             <Text h3>Presentación</Text>
         </Card.Header>
         <Card.Body>
-        Ingeniero Informático egresado del Instituto Profesional DUOC UC, soy una persona perseverante, planificado y orientado a obtener resultados, buena relación interpersonal, creativo, analítico y aprendizaje rápido.
+        Ingeniero Informático egresado del Instituto Profesional DUOC UC, soy una persona perseverante, planificada y orientada a obtener resultados, buena relación interpersonal, creativa, analítica, de aprendizaje rápido y gran capacidad de adaptabilidad.
         </Card.Body>
       </Card>
       <Spacer y={1} />
@@ -18,7 +18,7 @@ export const Presentacion:React.FC = () => {
             <Text h3>Motivación</Text>
         </Card.Header>
         <Card.Body>
-        Intentar nutrirme con todo el mayor conocimiento que me da trabajar al lado de otros profesionales y poder poner en práctica todo el conocimiento adquirido en mi etapa de formación profesional para lograr todos los objetivos y metas de la empresa.
+        Nutrirme con el conocimiento que me entrega el trabajar en conjunto a otros profesionales y poder poner en práctica el conocimiento adquirido en mi etapa de formación profesional para lograr los objetivos y metas establecidas en la empresa, además de enfrentar nuevos desafíos y seguir creciendo como profesional. 
         </Card.Body>
       </Card>
       
